@@ -1,0 +1,8 @@
+{% if is_granted('ROLE_ADMIN') %}
+    <a href="{{ path('user_edit', {user: row.idUser}) }}" title="Edytuj"
+       class="btn btn-primary btn-xs"><i class="far fa-edit"></i></a>
+    <a href="{{ path('user_delete', {user: row.idUser}) }}" title="Usuń"
+       class="btn btn-danger btn-xs"><i class="far fa-trash-alt"></i></a>
+{% endif %}
+
+{# @var row \App\Entity\User #}

@@ -1,0 +1,18 @@
+{% if is_granted('ROLE_ADMIN') %}
+    <a href="{{ path('lesson_elements_list', {lesson: row.idLesson}) }}" title="Elementy lekcji"
+       class="btn btn-primary btn-xs">Elementy lekcji</a>
+    <a href="{{ path('lesson_edit', {lesson: row.idLesson}) }}" title="Edytuj"
+       class="btn btn-primary btn-xs"><i class="far fa-edit"></i></a>
+    <a href="{{ path('lesson_edit_status', {lesson: row.idLesson}) }}" title="Zmień status"
+       class="btn btn-primary btn-xs">
+        {% if row.active %}
+            <i class="fas fa-toggle-on"></i>
+        {% else %}
+            <i class="fas fa-toggle-off"></i>
+        {% endif %}
+    </a>
+    <a href="{{ path('lesson_delete', {lesson: row.idLesson}) }}" title="Usuń"
+       class="btn btn-danger btn-xs"><i class="far fa-trash-alt"></i></a>
+{% endif %}
+
+{# @var row \App\Entity\Lesson #}

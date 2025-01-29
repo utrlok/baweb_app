@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block page_title %}Edytowanie ucznia - {{ student.name }} {{ student.surname }}{% endblock %}
+{% block page_subtitle %}{% endblock %}
+{% block logo_path %}{% endblock %}
+
+{% block page_content %}
+    <form action="{{ path('student_edit', {student: student.idStudent}) }}" class="form-horizontal"
+          method="post">
+        <div class="box">
+            <div class="box-body">
+                <div class="col-md-12">
+                    {{ form_widget(form) }}
+                </div>
+                <a href="{{ path('students_list') }}" title="Wróć" class="btn btn-default"><i class="fas fa-reply"></i>
+                    Wróć</a>
+                <button type="submit" class="btn btn-primary pull-right"><i class="fas fa-save"></i> Zapisz</button>
+            </div>
+        </div>
+    </form>
+{% endblock %}
+
+{# @var student \App\Entity\Student #}

@@ -1,0 +1,18 @@
+{% if is_granted('ROLE_ADMIN') %}
+    <a href="{{ path('student_courses_list', {student: row.idStudent}) }}" title="Kursy"
+       class="btn btn-primary btn-xs">Kursy</a>
+    <a href="{{ path('student_edit', {student: row.idStudent}) }}" title="Edytuj"
+       class="btn btn-primary btn-xs"><i class="far fa-edit"></i></a>
+    <a href="{{ path('student_edit_status', {student: row.idStudent}) }}" title="Zmień status"
+       class="btn btn-primary btn-xs">
+        {% if row.active %}
+            <i class="fas fa-toggle-on"></i>
+        {% else %}
+            <i class="fas fa-toggle-off"></i>
+        {% endif %}
+    </a>
+    <a href="{{ path('student_delete', {student: row.idStudent}) }}" title="Usuń"
+       class="btn btn-danger btn-xs"><i class="far fa-trash-alt"></i></a>
+{% endif %}
+
+{# @var row \App\Entity\Student #}

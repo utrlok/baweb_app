@@ -1,0 +1,10 @@
+{% if is_granted('ROLE_ADMIN') %}
+    <a href="{{ path('answers_list', {question: row.idQuestion}) }}" title="Odpowiedzi"
+       class="btn btn-primary btn-xs">Odpowiedzi</a>
+    <a href="{{ path('question_edit', {question: row.idQuestion}) }}" title="Edytuj"
+       class="btn btn-primary btn-xs"><i class="far fa-edit"></i></a>
+    <a href="{{ path('question_delete', {question: row.idQuestion}) }}" title="Usuń"
+       class="btn btn-danger btn-xs"><i class="far fa-trash-alt"></i></a>
+{% endif %}
+
+{# @var row \App\Entity\TestQuestion #}

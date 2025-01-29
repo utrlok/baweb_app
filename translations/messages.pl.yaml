@@ -1,0 +1,112 @@
+month:
+  1: stycznia
+  2: lutego
+  3: marca
+  4: kwietnia
+  5: maja
+  6: czerwca
+  7: lipca
+  8: sierpnia
+  9: września
+  10: października
+  11: listopada
+  12: grudnia
+
+month_normal:
+  1: styczeń
+  2: luty
+  3: marzec
+  4: kwiecień
+  5: maj
+  6: czerwiec
+  7: lipiec
+  8: sierpień
+  9: wrzesień
+  10: październik
+  11: listopad
+  12: grudzień
+
+weekday:
+  1: poniedziałek
+  2: wtorek
+  3: środa
+  4: czwartek
+  5: piątek
+  6: sobota
+  7: niedziela
+
+weekday_short:
+  1: pn
+  2: wt
+  3: śr
+  4: czw
+  5: pt
+  6: sb
+  7: nd
+
+students_table:
+  columns:
+    name: Imię
+    surname: Nazwisko
+    active: Status
+    birth_date: Data urodzenia
+    actions: Akcje
+
+course_table:
+  columns:
+    title: Tytuł
+    description: Opis
+    level: Poziom
+    active: Status
+    actions: Akcje
+
+lesson_table:
+  columns:
+    title: Tytuł
+    description: Opis
+    position: Pozycja
+    active: Status
+    actions: Akcje
+
+lesson_elements_table:
+  columns:
+    title: Tytuł
+    description: Opis
+    position: Pozycja
+    active: Status
+    actions: Akcje
+
+question_table:
+  columns:
+    text: Pytanie
+    actions: Akcje
+
+answer_table:
+  columns:
+    text: Odpowiedź
+    correct: ''
+    actions: Akcje
+
+users_table:
+  columns:
+    name: Imię
+    surname: Nazwisko
+    student: Uczeń
+    createdAt: Data rejestracji
+    email: Adres email
+    actions: Akcje
+
+student_course_table:
+  columns:
+    title: Kurs
+    start: Data przypisana
+    finish: Data zakończenia
+    actions: Akcje
+
+course:
+  title: Kurs
+  level:
+    !php/const App\Entity\Course::LEVEL_BEGINNER: Podstawowy
+    !php/const App\Entity\Course::LEVEL_INTERMEDIATE: Średniozaawansowany
+    !php/const App\Entity\Course::LEVEL_ADVANCED: Zaawansowany
+    !php/const App\Entity\Course::LEVEL_EXPERT: Ekspert

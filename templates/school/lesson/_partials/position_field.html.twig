@@ -1,0 +1,13 @@
+<div class="btn-group">
+    <a href="{{ path('lesson_move', {lesson: row.idLesson, direction: 'down'}) }}" class="btn btn-default btn-xs">
+        <i class="fas fa-caret-down"></i>
+    </a>
+    <button type="button" class="btn btn-default btn-xs disabled">
+        {{ row.position }}
+    </button>
+    <a href="{{ path('lesson_move', {lesson: row.idLesson, direction: 'up'}) }}" class="btn btn-default btn-xs">
+        <i class="fas fa-caret-up"></i>
+    </a>
+</div>
+
+{# @var row \App\Entity\Lesson #}

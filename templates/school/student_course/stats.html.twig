@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block page_title %}Statystyki {{ studentCourse.course.title }} ucznia {{ studentCourse.student.name }} {{ studentCourse.student.surname }}{% endblock %}
+{% block page_subtitle %}{% endblock %}
+{% block logo_path %}{% endblock %}
+
+{% block page_content %}
+    <div class="row">
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="info-box">
+                <span class="info-box-icon bg-aqua"><i class="fas fa-calendar-day"></i></span>
+                <div class="info-box-content">
+                    <span class="info-box-text">Data rozpoczęcia kursu</span>
+                    <span class="info-box-number">{{ studentCourse.start|date('d.m.Y H:i:s') }}</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="info-box">
+                <span class="info-box-icon bg-purple"><i class="fas fa-calendar-week"></i></span>
+                <div class="info-box-content">
+                    <span class="info-box-text">Ostatnia aktywność</span>
+                    <span class="info-box-number">14.06.2024 14:48:10</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="info-box">
+                <span class="info-box-icon bg-olive"><i class="fas fa-calendar-check"></i></span>
+                <div class="info-box-content">
+                    <span class="info-box-text">Data zakończenia kursu</span>
+                    <span class="info-box-number"><i>w trakcie</i></span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="info-box">
+                <span class="info-box-icon bg-navy"><i class="fas fa-graduation-cap"></i></span>
+                <div class="info-box-content">
+                    <span class="info-box-text">Test</span>
+                    <span class="info-box-number"><div class="label label-danger">NIEZALICZONY</div></span>
+                    <span class="info-box-number">0/20</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="box">
+        <div class="box-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="progress-group">
+                        <span class="progress-text">Postęp ucznia</span>
+                        <span class="progress-number"><b>12</b>/31 (39%)</span>
+                        <div class="progress sm">
+                            <div class="progress-bar progress-bar-red" style="width: 39%"></div>
+                        </div>
+                    </div>
+                    <p><b>Aktualna lekcja</b> (5.01) Tablice w PHP > Tablice indeksowane</p>
+                    <a href="{{ path('student_courses_list', {student:studentCourse.student.idStudent}) }}" title="Wróć"
+                       class="btn btn-default"><i class="fas fa-reply"></i> Wróć</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{# @var studentCourse \App\Entity\StudentCourse #}

@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block page_title %}Usuwanie kursu - {{ course.title }}{% endblock %}
+{% block page_subtitle %}{% endblock %}
+{% block logo_path %}{% endblock %}
+
+{% block page_content %}
+    <form action="{{ path('course_delete', {course: course.idCourse}) }}" class="form-horizontal"
+          method="post">
+        <div class="box">
+            <div class="box-body">
+                <div class="col-md-12">
+                    <h4>Czy na pewno chcesz usunąć ten kurs?</h4>
+                    <input type="hidden" name="confirm" value="1">
+                </div>
+                <a href="{{ path('courses_list') }}" title="Anuluj" class="btn btn-default"><i
+                            class="fas fa-reply"></i> Anuluj</a>
+                <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i> Usuń</button>
+            </div>
+        </div>
+    </form>
+{% endblock %}
+
+{# @var course \App\Entity\Course #}

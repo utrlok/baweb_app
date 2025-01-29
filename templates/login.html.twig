@@ -1,0 +1,26 @@
+{% extends '@AdminLTE/layout/security-layout.html.twig' %}
+{% block logo_login %}Szkoła <b>Programowania</b>{% endblock %}
+{% block title %}172.42.0.11 | Logowanie{% endblock %}
+{% block login_box_msg %}Logowanie{% endblock %}
+{% block login_form %}
+    {{ include('@AdminLTE/Partials/_flash_messages.html.twig') }}
+    <form action="{{ path('security_login') }}" method="post">
+        {% block login_form_start %}{% endblock %}
+        <div class="form-group has-feedback">
+            <input type="text" name="_username" value="{{ last_username }}" class="form-control" placeholder="Login">
+            <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+        </div>
+        <div class="form-group has-feedback">
+            <input name="_password" type="password" class="form-control" placeholder="Hasło">
+            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-block">Zaloguj</button>
+        </div>
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}"/>
+        <input type="hidden" name="_target_path" value="{{ app.request.get('redirect_to') }}"/>
+        {% block login_form_end %}{% endblock %}
+    </form>
+{% endblock %}
+{% block login_social_auth %}
+{% endblock %}

@@ -1,0 +1,91 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('app') }}
+    {{ parent() }}
+    <style>
+        .table-bordered > thead > tr > th {
+            text-align: center;
+        }
+
+        .table-bordered > tbody > tr > td {
+            text-align: center;
+        }
+
+        .box.box-solid > .box-header .btn:hover, .box.box-solid > .box-header a:hover {
+            background-color: #204d74;
+        }
+    </style>
+{% endblock %}
+
+{% block page_title %}Kursy{% endblock %}
+{% block page_subtitle %}{% endblock %}
+
+
+{% block sidebar_search %}
+{% endblock %}
+
+{% block page_content %}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-solid">
+                {% if is_granted('ROLE_ADMIN') %}
+                    <div style="text-align: right" class="box-header">
+                        <a href="{{ path('course_add') }}" title="Dodaj" class="btn btn-primary btn-sm"><i
+                                    class="fas fa-plus"></i> Dodaj kurs</a>
+                    </div>
+                {% endif %}
+                <div class="box-body">
+                    <div class="table-responsive">
+                        <div id="courses_table">Ładowanie...</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('app') }}
+    {{ parent() }}
+    {{ encore_entry_script_tags('datatable') }}
+    {{ encore_entry_script_tags('datatableBootstrap5') }}
+    {{ encore_entry_script_tags('datatableBundle') }}
+    <script>
+        $(function () {
+            $('#courses_table').initDataTables({{ datatable_settings(datatable) }}, {
+                searching: true,
+                dom: '<"html5buttons"B>lTfgitp',
+                language: {
+                    "processing":     "Przetwarzanie...",
+                    "search":         "Szukaj:",
+                    "lengthMenu":     "Pokaż _MENU_ pozycji",
+                    "info":           "Pozycje od _START_ do _END_ z _TOTAL_ łącznie",
+                    "infoEmpty":      "Pozycji 0 z 0 dostępnych",
+                    "infoFiltered":   "(filtrowanie spośród _MAX_ dostępnych pozycji)",
+                    "infoPostFix":    "",
+                    "loadingRecords": "Wczytywanie...",
+                    "zeroRecords":    "Nie znaleziono pasujących pozycji",
+                    "emptyTable":     "Brak danych",
+                    "paginate": {
+                        "first":      "Pierwsza",
+                        "previous":   "Poprzednia",
+                        "next":       "Następna",
+                        "last":       "Ostatnia"
+                    },
+                    "aria": {
+                        "sortAscending": ": aktywuj, by posortować kolumnę rosnąco",
+                        "sortDescending": ": aktywuj, by posortować kolumnę malejąco"
+                    }
+                }
+            });
+        });
+
+        $(document).ready(function () {
+            setTimeout(function () {
+                $('#dt_wrapper').addClass('table-responsive');
+            }, 500);
+        });
+
+    </script>
+{% endblock %}

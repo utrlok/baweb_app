@@ -1,0 +1,191 @@
+{% extends 'base.html.twig' %}
+
+{% block page_title %}{{ course.title }} <small><div class="label label-primary">Podstawowy</div></small>{% endblock %}
+{% block page_subtitle %}{% endblock %}
+{% block logo_path %}{% endblock %}
+
+{% block page_content %}
+<div class="row">
+    <div class="col-md-3">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box">
+                    <div class="box-header">
+                        <h4>Lekcje</h4>
+                    </div>
+                    <div class="box-body">
+                        <div class="progress-group">
+                            <span class="progress-text">Twoje postępy</span>
+                            <span class="progress-number"><b>12</b>/31 (39%)</span>
+                            <div class="progress sm">
+                                <div class="progress-bar progress-bar-red" style="width: 39%"></div>
+                            </div>
+                        </div>
+                        <ol style="font-size: 80%">
+                            <li><b>Wprowadzenie do PHP</b>
+                                <ol>
+                                    <li>Czym jest PHP</li>
+                                    <li>Instalacja PHP</li>
+                                    <li>Twój pierwszy skrypt PHP</li>
+                                </ol>
+                            </li>
+                            <li><b>Podstawy składni PHP</b>
+                                <ol>
+                                    <li>Zmienne i typy danych</li>
+                                    <li>Operatory</li>
+                                    <li>Instrukcje warunkowe</li>
+                                </ol>
+                            </li>
+                            <li><b>Funkcje w PHP</b>
+                                <ol>
+                                    <li>Tworzenie funkcji</li>
+                                    <li>Funkcje wbudowane</li>
+                                    <li>Funkcje anonimowe i strzałkowe</li>
+                                </ol>
+                            </li>
+                            <li><b>Praca z bazami danych</b>
+                                <ol>
+                                    <li>Połączenie z bazą danych MySQL</li>
+                                    <li>Wykonywanie zapytań SQL</li>
+                                    <li>Aktualizacja i usuwanie danych</li>
+                                </ol>
+                            </li>
+                            <li><b>Tablice w PHP</b>
+                                <ol>
+                                    <li class="label-success">Tablice indeksowane</li>
+                                    <li>Tablice asocjacyjne</li>
+                                    <li>Operacje na tablicach</li>
+                                </ol>
+                            </li>
+                            <li><b>Pętle w PHP</b>
+                                <ol>
+                                    <li>Pętla <code>for</code></li>
+                                    <li>Pętla <code>foreach</code></li>
+                                    <li>Pętla <code>while</code> i <code>do-while</code></li>
+                                </ol>
+                            </li>
+                            <li><b>Obsługa formularzy w PHP</b>
+                                <ol>
+                                    <li>Tworzenie formularzy HTML</li>
+                                    <li>Obsługa danych formularza w PHP</li>
+                                    <li>Walidacja danych formularza</li>
+                                </ol>
+                            </li>
+                            <li><b>Sesje i ciasteczka w PHP</b>
+                                <ol>
+                                    <li>Sesje w PHP</li>
+                                    <li>Ciasteczka w PHP</li>
+                                    <li>Bezpieczeństwo sesji i ciasteczek</li>
+                                </ol>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="box">
+                    <div class="box-header">
+                        <h4>Test <div class="label label-danger">0/20</div></h4>
+                    </div>
+                    <div class="box-body">Test składa się z 20 pytań zamkniętych. Jedna odpowiedź jest poprawna.</div>
+                    <div class="box-footer text-right">
+                        <button class="btn btn-default btn-sm">Rozwiąż test</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-9">
+        <div class="box">
+            <div class="box-header">
+                <h4>Lekcja 5.01</h4>
+            </div>
+            <div class="box-body">
+                <h2>Tablice indeksowane</h2>
+
+                <p>Tablice indeksowane używają liczb całkowitych jako kluczy. Są one jednym z najprostszych typów tablic i pozwalają na przechowywanie wielu wartości w jednej zmiennej. Oto przykład:</p>
+
+                <pre>
+<code>&lt;?php
+$owoce = [&quot;Jabłko&quot;, &quot;Banana&quot;, &quot;Pomarańcza&quot;];
+echo $owoce[0]; // Wyświetli &quot;Jabłko&quot;
+?&gt;</code></pre>
+
+                <h3>Tworzenie tablicy</h3>
+
+                <p>Aby utworzyć tablicę w PHP, możesz użyć funkcji <code>array()</code> lub krótszej składni z nawiasami kwadratowymi <code>[]</code>. Oto jak można to zrobić:</p>
+
+                <pre>
+<code>&lt;?php
+// Tworzenie tablicy za pomocą array()
+$owoce = array(&quot;Jabłko&quot;, &quot;Banana&quot;, &quot;Pomarańcza&quot;);
+
+// Tworzenie tablicy za pomocą krótszej składni []
+$warzywa = [&quot;Marchewka&quot;, &quot;Brokuł&quot;, &quot;Kalafior&quot;];
+?&gt;</code></pre>
+
+                <h3>Dodawanie elementów do tablicy</h3>
+
+                <p>Możesz dodawać nowe elementy do tablicy, przypisując wartości do nowych indeksów:</p>
+
+                <pre>
+<code>&lt;?php
+$owoce[] = &quot;Truskawka&quot;;
+$warzywa[] = &quot;Szpinak&quot;;
+echo $owoce[3]; // Wyświetli &quot;Truskawka&quot;
+echo $warzywa[3]; // Wyświetli &quot;Szpinak&quot;
+?&gt;</code></pre>
+
+                <h3>Usuwanie elementów z tablicy</h3>
+
+                <p>Możesz usunąć element z tablicy za pomocą funkcji <code>unset()</code>:</p>
+
+                <pre>
+<code>&lt;?php
+unset($owoce[1]); // Usunie &quot;Banana&quot; z tablicy
+echo isset($owoce[1]) ? $owoce[1] : &quot;Element usunięty&quot;; // Wyświetli &quot;Element usunięty&quot;
+?&gt;</code></pre>
+
+                <h3>Sprawdzanie istnienia elementu w tablicy</h3>
+
+                <p>Możesz sprawdzić, czy dany element istnieje w tablicy za pomocą funkcji <code>in_array()</code>:</p>
+
+                <pre>
+<code>&lt;?php
+if (in_array(&quot;Jabłko&quot;, $owoce)) {
+    echo &quot;Jabłko znajduje się w tablicy owoców&quot;;
+} else {
+    echo &quot;Jabłko nie znajduje się w tablicy owoców&quot;;
+}
+?&gt;</code></pre>
+
+                <h3>Uzyskiwanie długości tablicy</h3>
+
+                <p>Możesz uzyskać długość tablicy (liczbę elementów w tablicy) za pomocą funkcji <code>count()</code>:</p>
+
+                <pre>
+<code>&lt;?php
+echo count($owoce); // Wyświetli liczbę elementów w tablicy owoce
+?&gt;</code></pre>
+
+                <h3>Ćwiczenia</h3>
+
+                <p>Na koniec lekcji spróbuj wykonać poniższe ćwiczenia, aby utrwalić swoją wiedzę na temat tablic indeksowanych w PHP:</p>
+                <b>Ćwiczenie 1: Tworzenie tablicy</b>
+                <p>Utwórz tablicę zawierającą pięć różnych nazw zwierząt i wyświetl pierwszy oraz ostatni element tablicy (bez użycia pętli).</p>
+                <b>Ćwiczenie 2: Dodawanie i usuwanie elementów</b>
+                <p>Dodaj dwa nowe zwierzęta do tablicy i usuń jedno z istniejących. Wyświetl nowy pierwszy i ostatni element tablicy.</p>
+                <b>Ćwiczenie 3: Sprawdzanie istnienia elementu</b>
+                <p>Sprawdź, czy w tablicy znajduje się &quot;Kot&quot; i wyświetl odpowiedni komunikat.</p>
+            </div>
+            <div class="box-footer text-right">
+                <button class="btn btn-default">Wróć</button>
+                <button class="btn btn-success">Dalej</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{# @var course \App\Entity\Course #}

@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block page_title %}{{ course.title }} <small>
+    <div class="label label-primary">Podstawowy</div>
+</small> - Test{% endblock %}
+{% block page_subtitle %}{% endblock %}
+{% block logo_path %}{% endblock %}
+
+{% block page_content %}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box">
+                <div class="box-body">
+                    {% for question in test %}
+                        <form>
+                        <div class="form-group">
+                            <label>{{ question.text }}</label>
+                            {% for answer in question.answers %}
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="optionsRadios" id="{{ answer.idAnswer }}" value="option1">
+                                    {{answer.text}}
+                                </label>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        </form>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{# @var course \App\Entity\Course #}

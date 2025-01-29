@@ -1,0 +1,11 @@
+{% if row.level == constant('\\App\\Entity\\Course::LEVEL_BEGINNER') %}
+    <div class="label label-primary">Podstawowy</div>
+{% elseif row.level == constant('\\App\\Entity\\Course::LEVEL_INTERMEDIATE') %}
+    <div class="label label-info">Średniozaawansowany</div>
+{% elseif row.level == constant('\\App\\Entity\\Course::LEVEL_ADVANCED') %}
+    <div class="label label-warning">Zaawansowany</div>
+{% elseif row.level == constant('\\App\\Entity\\Course::LEVEL_EXPERT') %}
+    <div class="label label-danger">Ekspert</div>
+{% endif %}
+
+{# @var row \App\Entity\Course #}

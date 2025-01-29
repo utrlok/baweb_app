@@ -1,0 +1,27 @@
+{% extends '@AdminLTE/layout/default-layout.html.twig' %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('app') }}
+    {{ parent() }}
+{% endblock %}
+
+{% block logo_path %}{% endblock %}
+{% block logo_mini %}<b>Szkoła</b>{% endblock %}
+{% block logo_large %}<small>Szkoła <b>Programowania</b></small>{% endblock %}
+
+{% block sidebar_search %}
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('app') }}
+    {{ parent() }}
+{% endblock %}
+
+{% block footer %}
+    <footer class="main-footer">
+        <div class="pull-right hidden-xs">
+            MK
+        </div>
+        <strong>Copyright &copy; {{ 'now'|date('Y') }} Maciej Kara</strong>
+    </footer>
+{% endblock %}

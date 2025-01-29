@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block page_title %}{{ question.course.title }} - Edytowanie pytania{% endblock %}
+{% block page_subtitle %}{% endblock %}
+{% block logo_path %}{% endblock %}
+
+{% block page_content %}
+    <form action="{{ path('question_edit', {question: question.idQuestion}) }}" class="form-horizontal"
+          method="post">
+        <div class="box">
+            <div class="box-body">
+                <div class="col-md-12">
+                    {{ form_widget(form) }}
+                </div>
+                <a href="{{ path('questions_list', {course: question.course.idCourse}) }}" title="Wróć"
+                   class="btn btn-default"><i class="fas fa-reply"></i>
+                    Wróć</a>
+                <button type="submit" class="btn btn-primary pull-right"><i class="fas fa-save"></i> Zapisz</button>
+            </div>
+        </div>
+    </form>
+{% endblock %}
+
+{# @var question \App\Entity\TestQuestion #}

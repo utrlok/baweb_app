@@ -1,0 +1,8 @@
+{% if is_granted('ROLE_ADMIN') %}
+    <a href="{{ path('answer_edit', {answer: row.idAnswer}) }}" title="Edytuj"
+       class="btn btn-primary btn-xs"><i class="far fa-edit"></i></a>
+    <a href="{{ path('answer_delete', {answer: row.idAnswer}) }}" title="Usuń"
+       class="btn btn-danger btn-xs"><i class="far fa-trash-alt"></i></a>
+{% endif %}
+
+{# @var row \App\Entity\TestQuestionAnswer #}

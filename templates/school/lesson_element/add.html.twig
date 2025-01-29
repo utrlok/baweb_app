@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block page_title %}{{ lesson.title }} - Dodawanie elementu lekcji{% endblock %}
+{% block page_subtitle %}{% endblock %}
+{% block logo_path %}{% endblock %}
+
+{% block page_content %}
+    <form action="{{ path('lesson_element_add', {lesson:lesson.idLesson}) }}" class="form-horizontal"
+          method="post">
+        <div class="box">
+            <div class="box-body">
+                <div class="col-md-12">
+                    {{ form_widget(form) }}
+                </div>
+                <a href="{{ path('lesson_elements_list', {lesson:lesson.idLesson}) }}" title="Wróć" class="btn btn-default"><i class="fas fa-reply"></i> Wróć</a>
+                <button type="submit" class="btn btn-primary pull-right"><i class="fas fa-save"></i> Zapisz</button>
+            </div>
+        </div>
+    </form>
+{% endblock %}
+
+{# @var lesson \App\Entity\Lesson #}

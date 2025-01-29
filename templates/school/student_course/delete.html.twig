@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block page_title %}Wypisywanie z kursu {{ studentCourse.course.title }} ucznia {{ studentCourse.student.name }} {{ studentCourse.student.surname }}{% endblock %}
+{% block page_subtitle %}{% endblock %}
+{% block logo_path %}{% endblock %}
+
+{% block page_content %}
+    <form action="{{ path('student_course_delete', {studentCourse: studentCourse.idStudentCourse}) }}" class="form-horizontal"
+          method="post">
+        <div class="box">
+            <div class="box-body">
+                <div class="col-md-12">
+                    <h4>Czy na pewno chcesz wypisać ucznia z kursu?</h4>
+                    <input type="hidden" name="confirm" value="1">
+                </div>
+                <a href="{{ path('student_courses_list', {student:studentCourse.student.idStudent}) }}" title="Anuluj" class="btn btn-default"><i
+                            class="fas fa-reply"></i> Anuluj</a>
+                <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i> Usuń</button>
+            </div>
+        </div>
+    </form>
+{% endblock %}
+
+{# @var studentCourse \App\Entity\StudentCourse #}

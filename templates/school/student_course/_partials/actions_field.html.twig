@@ -1,0 +1,8 @@
+{% if is_granted('ROLE_ADMIN') %}
+    <a href="{{ path('student_course_stats', {studentCourse: row.idStudentCourse}) }}" title="Statystyki"
+       class="btn btn-primary btn-xs">Statystyki</a>
+    <a href="{{ path('student_course_delete', {studentCourse: row.idStudentCourse}) }}" title="Wypisz"
+       class="btn btn-danger btn-xs"><i class="far fa-trash-alt"></i></a>
+{% endif %}
+
+{# @var row \App\Entity\StudentCourse #}

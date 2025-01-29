@@ -1,0 +1,10 @@
+{% if is_granted('ROLE_ADMIN') %}
+    <a href="{{ path('lesson_element_preview', {lessonElement: row.idLessonElement}) }}" title="Podgląd"
+       class="btn btn-primary btn-xs"><i class="far fa-search"></i></a>
+    <a href="{{ path('lesson_element_edit', {lessonElement: row.idLessonElement}) }}" title="Edytuj"
+       class="btn btn-primary btn-xs"><i class="far fa-edit"></i></a>
+    <a href="{{ path('lesson_element_delete', {lessonElement: row.idLessonElement}) }}" title="Usuń"
+       class="btn btn-danger btn-xs"><i class="far fa-trash-alt"></i></a>
+{% endif %}
+
+{# @var row \App\Entity\LessonElement #}
